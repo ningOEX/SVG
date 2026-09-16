@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 500 200" style="border: 1px solid #ccc;">
+         <linearGradient id="gradient"
+            x1="1" y1="0"
+            x2="0" y2="1">
+            <stop offset="0" stop-color="#fac" />
+            <stop offset="1" stop-color="#caf" />
+        </linearGradient>
+        <polygon points="100 50, 150 150, 50 150" fill="url(#gradient)">
+            <animateTransform attributeName="transform"
+                type="rotate"
+                from="0 100 116.67"
+                to="360 100 116.67"
+                dur="4s"
+                repeatCount="indefinite"/>
+        </polygon>
+        <circle cx="100" cy="116.67" r="5" fill="#f40"/>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 500 200" style="border: 1px solid #ccc;">
+       <rect x="50" y="50" width="200" height="100" fill="url(#gradient)" rx="4" transform-origin="center">
+            <animateTransform attributeName="transform"
+                type="scale"
+                from="1"
+                to="1.2"
+                dur="1s"
+                repeatCount="1"
+                fill="freeze" />
+        </rect>
+       <circle cx="140" cy="100" r="5" fill="#f40" />
+    </svg>
+    
+</body>
+</html>

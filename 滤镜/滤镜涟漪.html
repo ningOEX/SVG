@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" width="480" height="400" viewBox="0 0 120 100">
+        <defs>
+            <radialGradient id="rg" cx="60" cy="70" fr="5" r="10" spreadMethod="reflect" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#f00" />
+                <stop offset="1" stop-color="#000" />
+            </radialGradient>
+
+            <filter id="filter">
+                <feImage href="../images/5.png" x="0" y="0" width="120" height="100"
+                    preserveAspectRatio="xMidYMid slice" result="img" />
+                <!-- 映射 -->
+                <feDisplacementMap in="img" in2="SourceGraphic" xChannelSelector="R" yChannelSelector="R" scale="0"
+                    result="map">
+                    <animate attributeName="scale" from="5" to="0" dur=".5s" fill="freeze" begin="r5.click"
+                        restart="whenNotActive" />
+                </feDisplacementMap>
+                <!-- 合并 -->
+                <feComposite in="map" in2="SourceGraphic" operator="in" result="comp" />
+            </filter>
+        </defs>
+        <image href="../images/5.png" width="120" height="100" preserveAspectRatio="xMidYMid slice" />
+        <ellipse id="el" cx="60" cy="70" rx="30" ry="20" fill="url(#rg)" filter="url(#filter)">
+            <animate attributeName="rx" from="15" to="40" dur=".5s" fill="freeze" begin="r5.click"
+                restart="whenNotActive" />
+            <animate attributeName="ry" from="10" to="30" dur=".5s" fill="freeze" begin="r5.click"
+                restart="whenNotActive" />
+        </ellipse>
+        <rect id="r5" x="0" y="0" width="120" height="100" fill-opacity="0" />
+    </svg>
+</body>
+<script>
+    (function () {
+        const rg = document.getElementById('rg')
+        const el = document.getElementById('el')
+        const r5 = document.getElementById('r5')
+        const time = 500
+
+        function setCoord() {
+            r5.onclick = function () {
+                r5.onmousemove = null
+                r5.onclick = null
+                setTimeout(()=>setCoord(),time)
+            }
+
+            r5.onmousemove = function (e) {
+                const x = e.offsetX / 4
+                const y = e.offsetY / 4
+                rg.setAttribute('cx', x)
+                rg.setAttribute('cy', y)
+                el.setAttribute('cx', x)
+                el.setAttribute('cy', y)
+            }
+        }
+        setCoord()
+    })()
+</script>
+
+</html>

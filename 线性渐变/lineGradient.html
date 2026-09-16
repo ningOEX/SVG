@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" style="border:1px solid #ccc">
+        <defs>
+            <linearGradient id="linearGradient" x1="1" x2="0" y1="1" y2="0">
+                <stop offset="0" stop-color="#f00"/>
+                <stop offset="25" stop-color="#ff0"/>
+                <stop offset="50" stop-color="#f0f"/>
+                <stop offset="75" stop-color="#0f0"/>
+                <stop offset="100" stop-color="#0ff"/>
+            </linearGradient>
+              <clipPath id="clipPath">
+               <text x="100" y="100" text-anchor="middle" font-size="40" font-family="system-ui" >S V G</text>
+            </clipPath>
+        </defs>
+        <rect x="0" y="0" width="200" height="200" fill="url(#linearGradient)" clip-path="url(#clipPath)" />
+    </svg>
+    <br/>
+
+</body>
+</html>

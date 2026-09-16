@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snap 动画</title>
+</head>
+
+<body>
+    <script src="snap.svg.js"></script>
+    <script>
+        // 创建一个svg
+        const paper = Snap(400, 400)
+
+        //    创建一个圆
+        const c = paper.circle(50, 50, 50)
+        c.attr({
+            fill: "#fac",
+        })
+        c.animate({cx:100},1000,function(){
+            console.log('end');
+        })
+    </script>
+</body>
+
+</html>

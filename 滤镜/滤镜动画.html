@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <svg width="500" height="200">
+        <defs>
+            <filter id="f1">
+                <feTurbulence baseFrequency="0.2" numOctaves="2" result="img" />
+
+                <feDisplacementMap in="SourceGraphic" in2="img" xChannelSelector="R" yChannelSelector="G" scale="50">
+                    <animate attributeType="XML" attributeName="scale" from="50" to="5" dur=".35s"
+                        begin="text1.mouseover" fill="freeze" />
+                    <animate attributeType="XML" attributeName="scale" from="5" to="50" dur=".35s"
+                        begin="text1.mouseout" fill="freeze" />
+                </feDisplacementMap>
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="500" height="200" fill="none" stroke="#fac" stroke-width="2" stroke-dasharray="2.5" />
+        <text id="text1" x="250" y="120" text-anchor="middle" font-size="100" filter="url(#f1)"
+            style="cursor: pointer;">middle</text>
+        <text x="250" y="190" text-anchor="middle">鼠标移入</text>
+    </svg>
+    <svg width="260" height="400">
+        <defs>
+            <filter id="f2" y=".52" width="260" height=".5">
+                <feTurbulence baseFrequency="0.05 0.5" result="img1">
+                    <animate attributeType="XML" attributeName="baseFrequency" from="0.05 0.5" to="0.5 0.1" dur="100s"
+                        fill="freeze" repeatDur="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="img" xChannelSelector="R" yChannelSelector="G" scale="2" />
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="400" height="400" fill="none" stroke="#fac" stroke-width="2" stroke-dasharray="2.5" />
+        <image href="../images/5.png" height="100%" width="100%" />
+        <image href="../images/5.png" height="100%" width="100%" filter="url(#f2)" />
+        <text x="130" y="40" text-anchor="middle" fill="#caf">滤镜映射噪音波纹</text>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="220" height="60" viewBox="-1 0 220 60">
+        <defs>
+            <filter id="f4">
+                <feTurbulence baseFrequency="0.25" result="img4" />
+                <feDisplacementMap in="SourceGraphic" in2="img4" xChannelSelector="B" yChannelSelector="R" scale="100">
+                    <animate id="animateMap" attributeType="XML" attributeName="scale" from="100" to="10" dur="1.5s"
+                        fill="freeze" />
+                </feDisplacementMap>
+            </filter>
+            <filter id="f5">
+                <feDropShadow dx="0.2" dy="0.4" stdDeviation="0.2" />
+            </filter>
+            <linearGradient id="lineGradient" x1="1" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#caf" />
+                <stop offset="1" stop-color="#fac" />
+            </linearGradient>
+        </defs>
+        <text x="105" y="42" text-anchor="middle" font-size="40" filter="url(#f4)">NING OEX</text>
+        <path id="pathLine" d="M30 60 L180 60, M180 60 A30 30 0 1 0 180 0, M180 0 L30 0, M30 0 A30 30 0 1 0 30 60"
+            fill="none" stroke="#caf" stroke-width="1" filter="url(#f5)">
+
+        </path>
+        <rect width="5" height="5" fill="url(#lineGradient)">
+            <animateMotion dur="15s" rotate="auto-reverse" repeatCount="indefinite" begin="animateMap.end">
+                <mpath href="#pathLine" />
+            </animateMotion>
+        </rect>
+    </svg>
+    <svg width="115" height="115">
+        <defs>
+            <filter id="f6">
+                <feTurbulence baseFrequency="0.05 0.5" result="tb">
+                    <animate attributeType="XML" attributeName="baseFrequency" from="0.05 0.5" to="0.15 0.25" dur="100s"
+                        fill="freeze" repeatDur="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="img" xChannelSelector="R" yChannelSelector="G" scale="10" result="map">
+                    <animate attributeType="XML" attributeName="scale" from="10" to="1" dur="2s" repeatCount="1"
+                        fill="freeze" />
+                </feDisplacementMap>
+                <feDropShadow dx="3" dy="3" stdDeviation="0.2" flood-color="#ffc"></feDropShadow>
+            </filter>
+        </defs>
+        <image x="1.5" y="1.5" href="https://avatars.githubusercontent.com/u/52589990?v=4" height="112" width="112"
+            filter="url(#f6)" />
+    </svg>
+</body>
+
+</html>

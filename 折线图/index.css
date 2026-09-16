@@ -1,0 +1,41 @@
+#coord {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #a0a0a0;
+}
+
+
+.y-text {
+  font-size: 6px;
+  text-anchor: end;
+  fill: #666;
+}
+.x-text {
+  text-anchor: middle;
+  font-size: 6px;
+  fill: #666;
+}
+
+.circle {
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.circle:hover {
+  r: 2;
+  fill: #f00;
+}
+
+.data-tooltip{
+  position: absolute;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  font-size: 12px;
+}
+
+

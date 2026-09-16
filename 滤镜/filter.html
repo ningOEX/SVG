@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <svg width="300" height="200">
+        <defs>
+            <filter id="filter">
+                <feOffset in="SourceGraphic" dx="-10" dy="-10" />
+                <feGaussianBlur stdDeviation="5" result="blur" />
+                <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+
+            <linearGradient id="gradient" x1="1" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#acf" />
+                <stop offset="1" stop-color="#fac" />
+            </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="300" height="200" fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="2.5" />
+        <rect x="50" y="50" width="200" height="100" fill="url(#gradient)" filter="url(#filter)" stroke="#caf"
+            stroke-width="2" />
+    </svg>
+    <svg width="300" height="200">
+        <defs>
+            <filter id="filter2">
+                <feDropShadow stdDeviation="2" />
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="300" height="200" fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="2.5" />
+        <rect x="50" y="50" width="200" height="100" fill="url(#gradient)" filter="url(#filter2)" stroke="#caf"
+            stroke-width="2" />
+    </svg>
+
+    <svg width="300" height="200">
+        <defs>
+            <filter id="filter3">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="300" height="200" fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="2.5" />
+        <image href="../images/1.png" height="200" width="300" filter="url(#filter3)" />
+    </svg>
+    <svg width="300" height="200">
+        <defs>
+            <filter id="filter4">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="300" height="200" fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="2.5" />
+        <image href="../images/1.png" height="200" width="300" filter="url(#filter4)" />
+    </svg>
+
+    <svg width="300" height="200">
+        <defs>
+            <filter id="filter5">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="300" height="200" fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="2.5" />
+        <image href="../images/2.png" height="200" width="300" />
+        <image href="../images/2.png" height="200" width="300" filter="url(#filter5)" transform="rotate(-10 90 20)
+               translate(-140 100)
+               skewX(40)
+               scale(1 0.5)" />
+    </svg>
+    <svg width="300" height="200">
+        <defs>
+            <filter id="filter6">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="3" flood-color="#acf" x="115" y="45" width="20"
+                    height="20" result="r1" />
+                <feMerge>
+                    <feMergeNode in="SourceGraphic" />
+                    <feMergeNode in="r1" />
+                </feMerge>
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="300" height="200" fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="2.5" />
+        <image href="../images/2.png" height="200" width="300" filter="url(#filter6)" />
+    </svg>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snap 动画</title>
+    <style>
+        svg {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="snap.svg.js"></script>
+    <script>
+        // 创建一个svg
+        const paper = Snap(820, 800)
+
+        const on = 'M0 200 Q200 0 400 200, 200 400 0 200'
+        const off = 'M0 200 Q200 200 400 200, 200 200 0 200'
+
+        // 创建材质
+        const eye = paper.path(on) // 眼
+        const ball = paper.circle(200, 200, 100) // 眼球
+        const eyeBall = paper.circle(260,200,20) //眼珠子
+        const eyeClip = eye.clone() // 遮罩区域
+        ball.attr({
+            clipPath: eyeClip
+        })
+        eyeBall.attr({
+            fill:'#fff'
+        })
+        eyeBall.addClass('eyeBall')
+        eye.attr({
+            fill: "none",
+            stroke: "#000",
+            strokeWidth: "2",
+            strokeLinecap: "round"
+        })
+        const leftEyeG = paper.g(eye, ball,eyeBall)
+        const rightEyeG = leftEyeG.clone()
+        rightEyeG.attr({
+            transform: "translate(420)"
+        })
+        const rightEye = rightEyeG.select('path')
+        const rightBall = rightEyeG.select('circle')
+
+        // 添加动画
+        const animates = [eye, rightEye, eyeClip]
+        const balls = [ball, rightBall]
+
+        function animateFunc() {
+            animates.forEach((e, i) => {
+                e.animate({ d: off }, 500, function () {
+                    this.animate({ d: on }, 500)
+                })
+            })
+        }
+
+        setInterval(() => {
+            animateFunc()
+        }, 5000)
+
+        animateFunc()
+
+    </script>
+</body>
+
+</html>

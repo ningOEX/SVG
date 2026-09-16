@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg
+      style="border: 1px solid"
+      xmlns="http://www.w3.org/2000/svg"
+      width="400"
+      height="200"
+      viewBox="0 0 400 200"
+    >
+      <rect x="0" y="0" width="0" height="20">
+        <animate
+          attributeType="XML"
+          attributeName="width"
+          to="100"
+          dur="1s"
+          repeatCount="1"
+          fill="freeze"
+          begin="btn.click"
+        />
+      </rect>
+      <g id="btn" style="cursor: pointer">
+        <rect
+          x="50"
+          y="50"
+          width="80"
+          height="30"
+          fill="none"
+          stroke="#ccc"
+          rx="6"
+        />
+        <text x="90" y="72" text-anchor="middle">click</text>
+      </g>
+    </svg>
+    <br />
+
+    <svg
+      style="border: 1px solid"
+      xmlns="http://www.w3.org/2000/svg"
+      width="400"
+      height="200"
+      viewBox="0 0 400 200"
+    >
+      <rect x="0" y="0" width="0" height="20">
+        <animate
+          id="rectAnimate"
+          attributeType="XML"
+          attributeName="width"
+          to="100"
+          dur="1s"
+          repeatCount="1"
+          begin="2s "
+          fill="freeze"
+        />
+      </rect>
+      <rect x="100" y="20" width="0" height="20">
+        <animate
+          attributeType="XML"
+          attributeName="width"
+          to="100"
+          dur="1s"
+          repeatCount="1"
+          begin="rectAnimate.end"
+          fill="freeze"
+        />
+      </rect>
+      <text x="150" y="150">延时2s</text>
+    </svg>
+    <svg
+      style="border: 1px solid"
+      xmlns="http://www.w3.org/2000/svg"
+      width="400"
+      height="200"
+      viewBox="0 0 400 200"
+    >
+      <defs>
+        <linearGradient id="gradient" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fac" />
+          <stop offset="1" stop-color="#caf" />
+        </linearGradient>
+      </defs>
+
+      <circle cx="200" cy="20" r="20" fill="url(#gradient)">
+        <animate
+          attributeName="cy"
+          dur="4s"
+          repeatCount="indefinite"
+          calcMode="spline"
+          values="20; 100; 180; 100; 20"
+          keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1"
+        />
+        <animate
+          attributeName="cx"
+          dur="4s"
+          repeatCount="indefinite"
+          calcMode="spline"
+          values="200; 280; 200; 120; 200"
+          keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1"
+        />
+      </circle>
+      <text x="10"  y="130" >animate 动画</text>
+      <text x="10"  y="160" >repeatCount: indefinite 重复循环</text>
+      <text x="10"  y="190" >calcMode: spline 配合keySplines 使用，否则不生效</text>
+    </svg>
+  </body>
+</html>

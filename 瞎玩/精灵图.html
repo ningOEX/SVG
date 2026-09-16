@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .sprite {
+    width: 70px;                    /* 每个图案的宽度 */
+    height: 80px;                   /* 每个图案的高度 */
+    background-image: url('../images/renshen.png');  /* 替换成你的图片路径 */
+    background-repeat: no-repeat;
+    background-size: 70px 960px;    /* 总高度 = 80 × 12 = 960px */
+    /* 初始显示第一个图案（索引0） */
+    background-position: 0px 0px;
+    
+    /* 可选：加个边框方便看效果 */
+    border: 1px solid #ccc;
+  }
+</style>
+</head>
+<body>
+
+<div id="spriteBox" class="sprite"></div>
+
+<script>
+  const TOTAL_FRAMES = 12;           // 总共12个图案
+  const FRAME_HEIGHT = 80;           // 每个图案高度 80px
+  let currentIndex = 0;              // 当前显示索引（0~11）
+  const intervalTime = 100;         // 切换间隔（毫秒），1秒切换一次
+
+  const sprite = document.getElementById('spriteBox');
+
+  function nextFrame() {
+    // 循环：0→1→2→...→11→0
+    currentIndex = (currentIndex + 1) % TOTAL_FRAMES;
+    
+    // 纵向偏移：向上移动，所以是负值
+    const yOffset = -currentIndex * FRAME_HEIGHT;
+    sprite.style.backgroundPosition = '0px ' + yOffset + 'px';
+  }
+
+  // 启动自动播放
+  setInterval(nextFrame, intervalTime);
+</script>
+
+</body>
+</html>

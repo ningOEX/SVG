@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            margin: 0 auto;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg width="500" height="500" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <pattern viewBox="0 0 50 50" id="pattern" patternUnits="objectBoundingBox" width=".15" height=".15" x="0" y="0">
+                <circle cx="25" cy="25" r="25"/>
+            </pattern>
+        </defs>
+        <circle cx="200" cy="200" r="100" fill="url(#pattern)"></circle>
+        <circle cx="200" cy="200" r="100" fill="none" stroke="red" stroke-dasharray="2.5"></circle>
+        <rect x="100" y="100" width="200" height="200" fill="none" stroke="#fac" />
+    </svg>
+</body>
+</html>

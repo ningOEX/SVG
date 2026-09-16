@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #c1{
+            fill:none;
+            stroke:#1656e0;
+            stroke-width:2;
+            /* 虚线 */
+            stroke-dasharray: 1 8;
+            /* 偏移量 */
+            stroke-dashoffset: 0;
+            transition: 5s linear;
+            /* 拐角 */
+            stroke-linejoin:round;
+            /* 端点 */
+            stroke-linecap:round;
+        }
+        #c2{
+            fill:none;
+            stroke:#1656e0;
+            stroke-width:1;
+            /* 偏移量 */
+            stroke-dashoffset: 0;
+            transition: 3s linear;
+            /* 拐角 */
+            stroke-linejoin:round;
+            /* 端点 */
+            stroke-linecap:round;
+        }
+    </style>
+</head>
+<body>
+   <svg
+      width="500"
+      height="500"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g stroke="#ccc" stroke-width="1">
+        <!-- X方向 -->
+        <line x1="0" y1="-120" x2="0" y2="120" />
+        <line x1="20" y1="-120" x2="20" y2="120" />
+        <line x1="40" y1="-120" x2="40" y2="120" />
+        <line x1="60" y1="-120" x2="60" y2="120" />
+        <line x1="80" y1="-120" x2="80" y2="120" />
+        <line x1="100" y1="-120" x2="100" y2="120" />
+
+        <!-- Y方向 -->
+        <line x1="0" y1="0" x2="120" y2="0" />
+        <line x1="0" y1="20" x2="120" y2="20" />
+        <line x1="0" y1="40" x2="120" y2="40" />
+        <line x1="0" y1="60" x2="120" y2="60" />
+        <line x1="0" y1="80" x2="120" y2="80" />
+        <line x1="0" y1="100" x2="120" y2="100" />
+      </g>
+        <path id="c1" d="M40 60 A20 20 0 1 1 80 60 A20 20 0 1 1 40 60"/>
+        <circle id="c2" cx="60" cy="60" r="10" />
+    </svg>
+
+    <script>
+        const c1 = document.querySelector('#c1');
+        const c2 = document.querySelector('#c2');
+        svgAnimate(c1,1); 
+        svgAnimate(c2,0);
+        // dom 是svg的path或者circle等元素
+        // type 1 逆时针 0 顺时针
+        function svgAnimate(dom, type) {
+            const length = dom.getTotalLength();
+            
+            dom.setAttribute('stroke-dasharray', length);
+            // 一次性设置路径的长度和偏移量
+            type === 0 ? dom.style.strokeDashoffset -= length : dom.style.strokeDashoffset += length;
+            dom.ontransitionend = function(e) {
+                if(e.propertyName === 'stroke-dashoffset') {
+                    dom.style['stroke-dashoffset'] = type === 0 ? dom.style['stroke-dashoffset']*1 - length*1 : dom.style['stroke-dashoffset']*1 + length*1;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

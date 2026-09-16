@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            transition:0.3s;
+        }
+        input:invalid {
+        border-color: red;
+        }
+        input:valid {
+            border-color: rgb(122, 134, 122);
+        }
+    </style>
+</head>
+<body>
+    <dialog id="myDialog">
+    <p>这是一个原生的弹窗！</p>
+    <button id="closeBtn">关闭</button>
+</dialog>
+
+<button id="openBtn">打开弹窗</button>
+
+<details>
+    <summary>点我展开查看更多</summary>
+    <p>这里是默认隐藏的内容。浏览器会自带一个展开/收起的小三角。</p>
+</details>
+
+<div contenteditable="true">
+    点我，你可以直接修改这段文字！
+</div>
+
+<a href="https://picsum.photos/200/300" download="1.jpg">下载图片</a>
+<a href="https://example.com" target="_blank" rel="noopener noreferrer">
+    安全打开新窗口
+</a>
+
+<ol reversed start="10">
+    <li>第一名</li>
+    <li>第二名</li>
+    <li>第三名</li>
+</ol>
+
+
+<!-- <img src="https://picsum.photos/1920/1020" alt="大图" loading="lazy"> -->
+
+<time datetime="2026-09-02T20:00:00+08:00">今晚八点</time>
+
+<address>
+    <a href="mailto:john@example.com">john@example.com</a><br>
+    <a href="tel:+1234567890">(123) 456-7890</a>
+</address>
+
+<dl>
+    <dt>前端框架</dt>
+    <dd>React</dd>
+    <dd>Vue</dd>
+    <dd>Angular</dd>
+    <dt>后端语言</dt>
+    <dd>Java</dd>
+    <dd>Python</dd>
+</dl>
+
+<input type="text"  />
+
+<input list="browsers" placeholder="请选择或输入...">
+<datalist id="browsers">
+    <option value="Chrome">
+    <option value="Firefox">
+    <option value="Edge">
+    <option value="Safari">
+</datalist>
+
+<progress value="70" max="100">70%</progress>
+
+<meter value="0.6" min="0" max="1" high="0.8" low="0.2" optimum="0.5">
+    60% 
+</meter>
+
+<picture>
+    <!-- 如果支持 WebP，加载 WebP 格式 -->
+    <source srcset="image.webp" type="image/webp">
+    <!-- 如果视口宽度小于 600px，加载小图 -->
+    <source srcset="https://picsum.photos/520/400" media="(max-width: 600px)">
+    <!-- 默认回退 -->
+    <img src="https://picsum.photos/1920/1280" alt="示例图片">
+</picture>
+
+<iframe src="https://third-party.com" 
+        sandbox="allow-scripts allow-same-origin allow-forms">
+</iframe>
+<br/>
+<img src="https://picsum.photos/520/400" fetchpriority="high">
+
+<div inert>
+    <!-- 这里面的所有按钮、输入框都不可操作 -->
+    <button>点我无效</button>
+    <input value="无法聚焦">
+</div>
+<button popovertarget="my-popover">打开Popover</button>
+<div id="my-popover" popover>
+    这是Popover内容，点击外部自动关闭！
+</div>
+
+<script>
+    const dialog = document.getElementById('myDialog');
+    document.getElementById('openBtn').addEventListener('click', () => {
+        dialog.showModal(); // 打开带遮罩的模态框
+    });
+    document.getElementById('closeBtn').addEventListener('click', () => {
+        dialog.close();
+    });
+</script>
+</body>
+</html>

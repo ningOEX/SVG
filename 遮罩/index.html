@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180">
+        <defs>
+            <linearGradient id="gradient">
+                <stop offset="0" stop-color="#fff"></stop>
+                <stop offset="1" stop-color="#000"></stop>
+            </linearGradient>
+            <mask id="mask">
+                <rect x="10" y="10" width="300" height="150" fill="url(#gradient)"></rect>
+            </mask>
+        </defs>
+        <g dominant-baseline="hanging">
+            <rect x="10" y="10" width="300" height="150" fill="#fac" mask="url(#mask)"></rect>
+            <rect x="10" y="10" width="300" height="150" fill="none" stroke="#f40" stroke-width="2" stroke-dasharray="3"></rect>
+        </g>
+    </svg>
+</body>
+</html>

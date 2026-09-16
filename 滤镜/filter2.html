@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <svg width="300" height="350">
+        <defs>
+            <linearGradient id="gradient"
+                x1="1" y1="0"
+                x2="0" y2="1">
+                <stop offset="0" stop-color="#acf"/>
+                <stop offset="1" stop-color="#fac"/>
+            </linearGradient>
+            <filter id="filter" x="" y="">
+                <feImage href="../images/2.png" y="-10" height="370"/>
+                <feComposite in2="SourceGraphic" operator="over"/>
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="300" height="350" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="2.5" rx="10"/>
+        <rect x="75" y="0" width="150" height="350" fill="url(#gradient)" filter="url(#filter)"/>
+        <text x="260"  y="340" text-anchor="middle">over</text>
+    </svg>
+    <svg width="300" height="350">
+        <defs>
+            <filter id="filter2" x="" y="">
+                <feImage href="../images/2.png" y="-10" height="370"/>
+                <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="300" height="350" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="2.5" rx="10"/>
+        <rect x="75" y="0" width="150" height="350" fill="url(#gradient)" filter="url(#filter2)"/>
+        <text x="260"  y="340" text-anchor="middle">in</text>
+    </svg>
+    <svg width="300" height="350">
+        <defs>
+            <filter id="filter3" x="" y="">
+                <feImage href="../images/2.png" y="-10" height="370"/>
+                <feComposite in2="SourceGraphic" operator="xor"/>
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="300" height="350" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="2.5" rx="10"/>
+        <rect x="75" y="0" width="150" height="350" fill="url(#gradient)" filter="url(#filter3)"/>
+        <text x="260"  y="340" text-anchor="middle">xor</text>
+    </svg>
+    <svg width="300" height="350">
+        <defs>
+            <filter id="filter4" x="" y="">
+                <feImage href="../images/2.png" y="-10" height="370"/>
+                <feComposite in2="SourceGraphic" operator="lighter"/>
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="300" height="350" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="2.5" rx="10"/>
+        <rect x="75" y="0" width="150" height="350" fill="url(#gradient)" filter="url(#filter4)"/>
+        <text x="260"  y="340" text-anchor="middle">lighter</text>
+    </svg>
+    <svg width="300" height="350">
+        <defs>
+            <filter id="filter5" x="" y="">
+                <feImage href="../images/2.png" y="-10" height="370" result="img"/>
+                <feComposite in="img" in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+        <rect x="0" y="0" width="300" height="350" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="2.5" rx="10"/>
+        <rect x="75" y="0" width="150" height="350" fill="url(#gradient)" filter="url(#filter5)"/>
+        <text x="260"  y="340" text-anchor="middle">lighter</text>
+    </svg>
+</body>
+</html>

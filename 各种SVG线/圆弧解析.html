@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg width="500" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="300" fill="#fafafa"/>
+  
+  <!-- 同一个圆，不同起点 -->
+  <!-- 圆1：起点在右边 -->
+  <g transform="translate(0, 0)">
+    <path d="M 100 100 A 40 40 0 1 1 20 100 A 40 40 0 1 1 100 100" 
+          stroke="#d32f2f" stroke-width="2" fill="none"/>
+    <circle cx="60" cy="100" r="2" fill="#d32f2f"/>
+    <circle cx="100" cy="100" r="5" fill="#2e7d32"/>
+    <text x="60" y="160" font-size="10" fill="#333" text-anchor="middle">起点在右边</text>
+  </g>
+  
+  <!-- 圆2：起点在底部 -->
+  <g transform="translate(140, 0)">
+    <path d="M 60 140 A 40 40 0 1 1 60 60 A 40 40 0 1 1 60 140" 
+          stroke="#1565c0" stroke-width="2" fill="none"/>
+    <circle cx="60" cy="100" r="2" fill="#1565c0"/>
+    <circle cx="60" cy="140" r="5" fill="#2e7d32"/>
+    <text x="60" y="160" font-size="10" fill="#333" text-anchor="middle">起点在底部</text>
+  </g>
+  
+  <!-- 圆3：起点在任意角度 -->
+  <g transform="translate(280, 0)">
+    <path d="M 100 70 A 40 40 0 1 1 20 70 A 40 40 0 1 1 100 70" 
+          stroke="#e65100" stroke-width="2" fill="none"/>
+    <circle cx="60" cy="70" r="2" fill="#e65100"/>
+    <circle cx="100" cy="70" r="5" fill="#2e7d32"/>
+    <text x="60" y="160" font-size="10" fill="#333" text-anchor="middle">起点在右上</text>
+  </g>
+  
+  <text x="200" y="260" font-size="13" fill="#555" text-anchor="middle">
+    起点 M 可以在圆周任意位置，但必须在圆周上！
+  </text>
+</svg>
+  </body>
+</html>

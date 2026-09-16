@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>折线图</title>
+    <style>
+      .y-text{
+        font-size: 6px;
+        text-anchor: end;
+        fill: #666;
+      }
+      .x-text{
+        text-anchor: middle;
+        font-size: 6px;
+        fill: #666;
+      }
+    </style>
+</head>
+<body>
+   <svg id="coord" width="500" height="500" style="border:1px solid black;">
+    <!-- y轴刻度  -->
+    <g class="y-text">
+      <text x="22" y="227">0</text>
+      <text x="22" y="188">20</text>
+      <text x="22" y="148">40</text>
+      <text x="22" y="107">60</text>
+      <text x="22" y="66">80</text>
+      <text x="22" y="27">100</text>
+    </g>
+    <!-- x轴刻度 -->
+    <!-- 200/7=28.57 -->
+    <g class="x-line">
+      <polyline points="25.3 225, 25.3 228" stroke="#ccc" stroke-width="0.5"></polyline>
+      <polyline points="53.86 225, 53.86 228" stroke="#ccc" stroke-width="0.5"></polyline>
+      <polyline points="82.43 225, 82.43 228" stroke="#ccc" stroke-width="0.5"></polyline>
+      <polyline points="111 225, 111 228" stroke="#ccc" stroke-width="0.5"></polyline>
+      <polyline points="139.57 225, 139.57 228" stroke="#ccc" stroke-width="0.5"></polyline>
+      <polyline points="168.14 225, 168.14 228" stroke="#ccc" stroke-width="0.5"></polyline>
+      <polyline points="196.71 225, 196.71 228" stroke="#ccc" stroke-width="0.5"></polyline>
+      <polyline points="224.7 225, 224.7 228" stroke="#ccc" stroke-width="0.5"></polyline>
+    </g>
+    <!-- x轴标签 在x轴刻度的一半中间 -->
+    <g class="x-text">
+      <text x="39.58" y="235">1</text>
+      <text x="68.14" y="235">2</text>
+      <text x="96.71" y="235">3</text>
+      <text x="125.28" y="235">4</text>
+      <text x="153.85" y="235">5</text>
+      <text x="182.42" y="235">6</text>
+      <text x="210.99" y="235">7</text> 
+    </g>
+
+    <!-- 折线数据 -->
+    <g class="line">
+      <polyline points="39.58 205, 68.14 85, 96.71 145," stroke="#3d9bf0" stroke-width="1" fill="none"></polyline>
+    </g>
+   </svg>
+</body>
+<script src="coord.js"></script>
+<script>
+  (()=>{
+    draw({id:'#coord',yAxis:false,title:'访问量（天）'});
+  })();
+</script>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 500 200"
+        style="border: 1px solid #ccc;">
+        <defs>
+            <linearGradient id="gradient" x1="1" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fac" />
+                <stop offset="1" stop-color="#caf" />
+            </linearGradient>
+        </defs>
+        <path d="M0 0 L500 200" fill="none" stroke="#caf" stroke-width="1" />
+        <circle cx="0" cy="0" r="10" fill="url(#gradient)">
+            <animateMotion path="M0 0 L500 200 M500 200 L0 0" begin="1s" dur="10s" repeatCount="indefinite"
+                fill="freeze" />
+        </circle>
+        <circle cx="0" cy="0" r="5" fill="url(#gradient)">
+            <animateMotion path="M0 0 L500 0, M500 0 L500 200, M500 200 L0 200, M0 200 L0 0" begin="0" dur="20"
+                repeatCount="indefinite" />
+        </circle>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 500 200"
+        style="border: 1px solid #ccc;">
+        <path d="M0 0 C50 200 400 0 500 200" fill="none" stroke="#caf" stroke-width="1" />
+        <circle cx="0" cy="0" r="10" fill="url(#gradient)">
+            <animateMotion path="M0 0 C50 200 400 0 500 200" begin="1s" dur="10" repeatCount="indefinite"
+                calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines="0 1 1 0" fill="freeze">
+            </animateMotion>
+        </circle>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 500 200"
+        style="border: 1px solid #ccc;">
+
+        <path d="M50 50, A20 20 0 1 0 50 100, M50 100, L400 100, M400 100, A20 20 0 1 0 400 50, M400 50, L50 50 z"
+            fill="none" stroke="#caf" stroke-width="1" />
+        <circle r="10" fill="url(#gradient)">
+            <animateMotion
+                path="M50 50, A20 20 0 1 0 50 100, M50 100, L400 100, M400 100, A20 20 0 1 0 400 50, M400 50, L50 50"
+                dur="10s" repeatCount="indefinite" />
+        </circle>
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 500 200"
+        style="border: 1px solid #ccc;">
+        <path id="path"
+            d="M50 50, A20 20 0 1 0 50 100, M50 100, L400 100, M400 100, A20 20 0 1 0 400 50, M400 50, L50 50"
+            fill="none" stroke="#caf" stroke-width="1" />
+        <rect width="15" height="15" fill="url(#gradient)">
+            <animateMotion dur="10s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#path" />
+            </animateMotion>
+        </rect>
+        <rect width="15" height="15" fill="url(#gradient)">
+            <animateMotion dur="10s" repeatCount="indefinite" rotate="auto-reverse">
+                <mpath href="#path" />
+            </animateMotion>
+        </rect>
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 500 200"
+        style="border: 1px solid #ccc;">
+        <rect x="100" y="50" width="200" height="100" fill="#caf">
+            <set attributeName="fill" to="#fac" begin="1s" />
+            <set attributeName="fill" to="#00f" begin="1.5s" />
+            <set attributeName="fill" to="#f00" begin="2s" />
+            <set attributeName="fill" to="#ff0" begin="2.5s" />
+            <set attributeName="fill" to="#ffc" begin="3s" />
+            <set attributeName="stroke" to="1" begin="3s" />
+        </rect>
+    </svg>
+
+</body>
+
+</html>
